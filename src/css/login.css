@@ -1,0 +1,10 @@
+.loginBackGround{
+    background: url('../Components/images/PrivacyLock.jpg') center center /cover no-repeat fixed;
+    height: 90%;
+    width:90%;
+    margin-left: 5%;
+}
+.highlightLogin{
+    color: greenyellow;
+    background-color: grey;
+}
