@@ -1,18 +1,26 @@
 import React from 'react';
+import Login from './Login.js';
 import '../css/login.css';
-import Login from './login';
-import logo from '../logo.svg'
+import imageFile from '../Images/favicon.ico'
 
-class loginForm extends React.Component{
-    render(){
-        return(
-            <div className='loginBackGround'>
-                <img src={logo} height='100px' alt='logo'></img>
-                <div className='highlightLogin'>Welcome to the Site and enjoy browsing all the available options on the site </div>
-                <Login/>
-            </div>
+class LoginForm extends React.Component {
+    render() {
+        return (
+            <React.Fragment>
+                <div className='LoginBackground'>
+                    <div>
+                        <a href="/" >
+                            <img width="auto" height="50px" src={imageFile} alt='logo' />
+                        </a>
+                    </div>
+                    <div className='CPJumbotron'>
+                        <h1>My Sample Customer Portal</h1>
+                        <p>This is my sample project for learning ReactJS</p><br/>
+                    </div>
+                    <Login />
+                </div>
+            </React.Fragment>
         )
     }
 }
-
-export default loginForm;
+export default LoginForm;
