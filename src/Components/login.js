@@ -1,58 +1,48 @@
 import React from 'react';
-// import Admin from './admin';
-// import User from './user';
+import ReactDOM from 'react-dom'
+import '../css/login.css';
+import Welcome from './Welcome.js';
 
-class login extends React.Component {
+class Login extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            ParentCounter : 0
+        }
+    }
+    updateParentCounter = (remTime) =>{
+        this.setState({ParentCounter:this.state.ParentCounter+1}, 
+            () => {alert(`Hello ${this.state.ParentCounter} ${remTime}`)})        
+    }
+    AdminOrUser = () => {
+        let user = document.getElementById('loginUser').value;
+        let password = document.getElementById('loginPassword').value;
+        if (user === 'admin' && password === 'admin') {
+            document.getElementById('LogCred').hidden = true;
+            ReactDOM.render(<Welcome user={user} AdminOrUserParent = {this.updateParentCounter} />, document.getElementById('WelcomeLoad'))
+        }
+        else if (user === 'user1' && password === 'user1') {
+            document.getElementById('LogCred').hidden = true;
+            ReactDOM.render(<Welcome user={user} AdminOrUserParent = {this.updateParentCounter} />, document.getElementById('WelcomeLoad'))
+        }
+        else {
+            document.getElementById('credMessage').hidden = false;
+        }
+    }
     render() {
-        //let counter =5;
-        // let highlight ={
-        //     color: 'green', backgroundcolor: 'grey'
-        // }
-        // let isValidUser = false;
-        // let isAdmin = false;
-        // var isAdmin = false;
-        // var isValidUser = false;
-        // function validateUser(user, password) {
-        //     if (user === 'admin' && password === 'admin') {
-        //         isValidUser = true;
-        //         isAdmin = true;
-        //     }
-        //     else if (user === 'user1' && password === 'user1') {
-        //         isValidUser = true;
-        //     }
-        // }
         return (
-
-            //JSX
-
-            <form>
-                <div>
-                    <h1 style={{ color: 'White' }}>Login</h1><br />
-                    {/* <h1 style={highlight}>Login</h1><br/> */}
-                    <input id='txtUser' type='text' placeholder='User Name'></input><br /><br />
-                    <input id='txtPassword' type='password' placeholder='Password'></input><br /><br />
-                    <input type='submit' ></input><br /><br />                    
-                    {/* <input type='label' value={"counter : "}></input>
-                    <input type='text' value={counter * counter }></input> <br/><br/> */}
-                </div>                
-            </form>
-
-            // //pure Java script
-            // React.createElement('form',{},
-            // React.createElement('div',{},
-            // React.createElement('h1',{},"Login"),
-            // React.createElement('br',{}),
-            // React.createElement('input',{type:'text', placeholder:'UserName',}),
-            // React.createElement('br',{}),
-            // React.createElement('br',{}),
-            // React.createElement('input',{type:'password', placeholder:'Password',}),
-            // React.createElement('br',{}),
-            // React.createElement('br',{}),
-            // React.createElement('input',{type:'submit', nvalue:'Log',}),
-            // React.createElement('br',{}),
-            // React.createElement('br',{}),
-            // ))
+            <React.Fragment>
+                <div id='LogCred'>
+                    <h1 className='LoginTitle'> Login </h1>
+                    <input id='loginUser' type='text' placeholder='User Name' /> <br /><br />
+                    <input id='loginPassword' type='password' placeholder='Password' /><br /><br />
+                    <input type='submit' value='Login' onClick={this.AdminOrUser} /><br />
+                    <p id='credMessage' hidden> Enter valid credentials </p>
+                </div>
+                <h1 className='LoginTitle'> ParentCounter : {this.state.ParentCounter}</h1>
+                <div id='WelcomeLoad' className='LoginTitle' /><br />
+            </React.Fragment>
         )
     }
 }
-export default login;
+export default Login;
