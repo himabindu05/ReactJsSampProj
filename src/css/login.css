@@ -1,10 +1,20 @@
-.loginBackGround{
-    background: url('../Components/images/PrivacyLock.jpg') center center /cover no-repeat fixed;
-    height: 90%;
-    width:90%;
+.LoginBackground{
+    width: 90%;
     margin-left: 5%;
+    background: url('../Images/PrivacyLock.jpg') center center/cover no-repeat fixed
 }
-.highlightLogin{
-    color: greenyellow;
-    background-color: grey;
+.LoginBackground p,h1{
+    color: white;
+}
+.LoginTitle {
+    color: white;
+}
+.CPJumbotron{
+    opacity: 0.4;
+    background: whitesmoke;
+    font-size: 20px;
+    font-weight: 700;
+}
+.CPJumbotron p,h1{
+    color: rgb(79, 90, 102);
 }
