@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react'
 
-class admin extends React.Component{
-    render(){
-        return(
-            <h1>Welcome Admin</h1>
+export class Admin extends Component {
+    render() {
+        return (
+            <div>
+                Hello Admin !!!!
+            </div>
         )
     }
 }
 
-export default admin;
+export default Admin
