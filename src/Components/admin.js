@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import UserDetails from './UserDetails'
 
 export class Admin extends Component {
     render() {
         return (
             <div>
-                Hello Admin !!!!
+                <h1 className='LoginTitle'>Hello Admin !!!!</h1>
+                <div className='LoginTitle'><UserDetails/></div>
             </div>
         )
     }

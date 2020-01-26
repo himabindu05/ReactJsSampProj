@@ -1,6 +1,6 @@
 import React from 'react';
 import Admin from './Admin.js';
-//import User from './User.js';
+import User from './User.js';
 
 class Welcome extends React.Component {
     constructor(props) {
@@ -18,13 +18,13 @@ class Welcome extends React.Component {
     }
 
     render = (props) => {
-        return(
-            (this.props.user === 'admin')&&<Admin/>
-        )
-
-        // return (            
-        //     (this.props.user === 'admin') ? (<Admin />) : (<User />)            
+        // return(
+        //     (this.props.user === 'admin')&&<Admin/>
         // )
+
+        return (            
+            (this.props.user === 'admin') ? (<div><Admin /></div>) : (<div><User /></div>)            
+        )
         // var message
         // if (this.props.user === 'admin') {
         //     message = <Admin />

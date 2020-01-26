@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import UserDetails from './UserDetails'
 
 export class User extends Component {
     render() {
         return (
             <div>
-                Hello User !!!!
+                <h1>Hello User !!!!</h1>
+                <UserDetails/>
             </div>
         )
     }
