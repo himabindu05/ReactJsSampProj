@@ -1,11 +1,17 @@
 import React from 'react';
 import './App.css';
-import LoginForm from './Components/LoginForm'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Login from './Components/LoginForm.js';
+import Welcome from './Components/Welcome.js';
 
 function App() {
   return (
     <div className="App">
-      <LoginForm/>
+      {/* <LoginForm/> */}
+      <Router>
+        <Route exact path="/" component={Login} />
+        <Route path="/Welcome/:user" component={Welcome} />
+      </Router>
     </div>
   );
 }

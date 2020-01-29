@@ -1,6 +1,7 @@
 import React from 'react';
 import Admin from './Admin.js';
 import User from './User.js';
+import Header from './Header.js'
 
 class Welcome extends React.Component {
     constructor(props) {
@@ -14,7 +15,8 @@ class Welcome extends React.Component {
         setInterval(this.updateCounter, 1000)
     }
     updateCounter = () => {
-        this.setState({ counter: this.state.counter + 1 }, () => { this.setState({ remainingTime: 1000 - this.state.counter }) });
+        this.setState({ counter: this.state.counter + 1 },
+            () => { this.setState({ remainingTime: 1000 - this.state.counter }) });
     }
 
     render = (props) => {
@@ -22,8 +24,18 @@ class Welcome extends React.Component {
         //     (this.props.user === 'admin')&&<Admin/>
         // )
 
-        return (            
-            (this.props.user === 'admin') ? (<div><Admin /></div>) : (<div><User /></div>)            
+        var formType 
+        if (this.props.match.params.user === 'admin') {
+            formType = <Admin/>
+        }
+        else{
+            formType = <User/>
+        }
+        return (
+            <React.Fragment>
+                <Header/>
+                {formType}
+            </React.Fragment>
         )
         // var message
         // if (this.props.user === 'admin') {
