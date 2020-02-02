@@ -1,6 +1,4 @@
 .LoginBackground{
-    width: 90%;
-    margin-left: 5%;
     background: url('../Images/PrivacyLock.jpg') center center/cover no-repeat fixed
 }
 .LoginBackground p,h1{

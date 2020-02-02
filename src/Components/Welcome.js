@@ -1,16 +1,33 @@
 import React from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Admin from './Admin.js';
 import User from './User.js';
-import Header from './Header.js'
+import About from './About.js'
+import ContactUs from './ContactUs';
+import Toolbar from './Toolbar.js';
+import SideDrawer from './SideDrawer.js';
+import Backdrop from './Backdrop.js';
 
 class Welcome extends React.Component {
     constructor(props) {
         super();
         this.state = {
             counter: 0,
-            remainingTime: 0
+            remainingTime: 0,
+            isSideDrawerOpen : false
         }
     }
+
+    SideDrawerOpenHandler = () => {
+        this.setState((prevState)=>{
+            return {isSideDrawerOpen:!prevState.isSideDrawerOpen}
+        });
+    }
+
+    BackDropClickHandler = () =>{
+        this.setState({isSideDrawerOpen:false})
+    }
+
     componentDidMount() {
         setInterval(this.updateCounter, 1000)
     }
@@ -31,10 +48,22 @@ class Welcome extends React.Component {
         else{
             formType = <User/>
         }
+        let sideDrawer;
+            let backDrop;
+            if (this.state.isSideDrawerOpen){
+                sideDrawer=<SideDrawer/>
+                backDrop=<Backdrop backDropClick = {this.BackDropClickHandler}/>
+            }
         return (
             <React.Fragment>
-                <Header/>
+                <div style={{height:"100%"}}>
+                <Toolbar drawerClickHandler={this.SideDrawerOpenHandler}/> 
+                {sideDrawer}
+                {backDrop}
+                <main style={{marginTop:"40px"}}>
                 {formType}
+                    </main>       
+                    </div>
             </React.Fragment>
         )
         // var message
